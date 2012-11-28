@@ -91,14 +91,14 @@ protected:
 		symbol_entry const & symbol;
 		sample_entry const & sample;
 		size_t pclass;
-		mutable counts_t & counts;
+		counts_t & counts;
 		extra_images const & extra;
 		double diff;
 	};
- 
+
 	/// format callback type
 	typedef std::string (formatter::*fct_format)(field_datum const &);
- 
+
 	/** @name format functions.
 	 * The set of formatting functions, used internally by output().
 	 */
@@ -116,19 +116,19 @@ protected:
 	std::string format_cumulated_percent_details(field_datum const &);
 	std::string format_diff(field_datum const &);
 	//@}
- 
+
 	/// decribe one field of the colummned output.
 	struct field_description {
 		field_description() {}
 		field_description(std::size_t w, std::string h,
 				  fct_format f)
 			: width(w), header_name(h), formatter(f) {}
- 
+
 		std::size_t width;
 		std::string header_name;
 		fct_format formatter;
 	};
- 
+
 	typedef std::map<format_flags, field_description> format_map_t;
 
 	/// actually do output
@@ -136,7 +136,7 @@ protected:
 		      sample_entry const & sample, counts_t & c,
 	              diff_array_t const & = diff_array_t(),
 	              bool hide_immutable_field = false);
- 
+
 	/// returns the nr of char needed to pad this field
 	size_t output_header_field(std::ostream & out, format_flags fl,
 	                           size_t padding);
@@ -145,7 +145,7 @@ protected:
 	size_t output_field(std::ostream & out, field_datum const & datum,
 			   format_flags fl, size_t padding,
 			   bool hide_immutable);
- 
+
 	/// stores functors for doing actual formatting
 	format_map_t format_map;
 
@@ -171,7 +171,7 @@ protected:
 	/// an archive and for 2.6 kernel modules
 	extra_images const & extra_found_images;
 };
- 
+
 
 /// class to output in a columned format symbols and associated samples
 class opreport_formatter : public formatter {
@@ -187,17 +187,17 @@ public:
 	void show_details(bool);
 
 private:
- 
+
 	/** output one symbol symb to out according to the output format
 	 * specifier previously set by call(s) to add_format() */
 	void output(std::ostream & out, symbol_entry const * symb);
 
 	/// output details for the symbol
 	void output_details(std::ostream & out, symbol_entry const * symb);
- 
+
 	/// container we work from
 	profile_container const & profile;
- 
+
 	/// true if we need to show details for each symbols
 	bool need_details;
 };
@@ -264,7 +264,7 @@ public:
 private:
 	/// container we work from
 	profile_container const * profile;
- 
+
 	// ordered collection of symbols associated with this profile
 	symbol_collection & symbols;
 
@@ -318,7 +318,7 @@ private:
 		size_t lo, size_t hi, bool is_module, tag_t tag);
 };
 
-} // namespace format_output 
+} // namespace format_output
 
 
 #endif /* !FORMAT_OUTPUT_H */
