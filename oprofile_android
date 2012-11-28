@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.6
+#!/usr/bin/python2 -E
 #
 # Copyright (C) 2011 The Android Open Source Project
 #
@@ -129,7 +129,7 @@ class Tool:
     print "    status                : show profiler status"
     print
     print "    import                : dump samples and pull session directory from the device"
-    print "      -f, --force             : remove existing session directory before import" 
+    print "      -f, --force             : remove existing session directory before import"
     print
     print "    report [args]         : generate report with specified arguments to 'opreport'"
     print "      -l, --symbols           : show symbols"
